@@ -3,6 +3,8 @@ package ts.zmy.com.day01;
 public class reverseWords {
 	public static String reverseWords(String s) {
 		String[] split = s.split(" ");
+		if(split==null||split.length==0)
+			return "";
 		StringBuilder sB = new StringBuilder();
 		for(int i=split.length-1;i>=0;i--)
 		{
@@ -11,12 +13,9 @@ public class reverseWords {
 			sB.append(split[i].trim()+" ");
 		}
 		String res = sB.toString();
-		if(res.equals(""))
-			return "";
-		else
-		return res.substring(0, res.length()-1);
+		return res.trim();
 	}
 	public static void main(String[] args) {
-		System.out.println(reverseWords("the sky is"));
+		System.out.println(reverseWords("the sky is   "));
 	}
 }
