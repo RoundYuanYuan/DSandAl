@@ -13,7 +13,7 @@ public class CompareVersionNum {
 	 *         "1.0.1", version2 = "1" 输出: 1 示例 3: 输入: version1 = "7.5.2.4",
 	 *         version2 = "7.5.3" 输出: -1
 	 * 
-	 *         提交次数：1
+	 *         提交次数：2 优化了代码
 	 */
 	public static int compareVersion(String version1, String version2) {
 		// 分割v1和v2按照 .
@@ -27,9 +27,10 @@ public class CompareVersionNum {
 		int v2Index = 0;
 
 		/**
-		 * 1、判断v1和v2是否都没有超出数组范围 2、判断大小
+		 * 1、判断v1和v2是否都没有超出数组范围 
+		 * 2、判断大小
 		 */
-
+		
 		while (v1Len > v1Index && v2Len > v2Index) {
 			int v1Num = Integer.parseInt(v1Arr[v1Index]);
 			int v2Num = Integer.parseInt(v2Arr[v2Index]);
@@ -49,7 +50,6 @@ public class CompareVersionNum {
 		// v2到底后判断v1
 		if (v1Len != v1Index && v2Len == v2Index)
 			return isAllZero(v1Arr, v1Len, v1Index, 1);
-		
 		return 0;
 	}
 	
