@@ -18,9 +18,9 @@ public class BasicCalculater2 {
 		int res = 0;
 		char op='+';
 		for (int i = 0; i < slen; i++) {
-			if (isNum(s.charAt(i)))
+			if (isNum(s.charAt(i)))//截取数字
 				num = num * 10 + s.charAt(i) - '0';
-			if(i==slen-1||!isNum(s.charAt(i)))
+			if(i==slen-1||(!isNum(s.charAt(i))&&s.charAt(i)!=' '))
 			{
 				if (op == '+')
 					st1.push(num);
@@ -50,6 +50,6 @@ public class BasicCalculater2 {
 
 	public static void main(String[] args) {
 
-		System.out.println(calculate("3+2*2"));
+		System.out.println(calculate(" 3+5 / 2 "));
 	}
 }
