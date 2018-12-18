@@ -4,49 +4,57 @@ import java.util.Stack;
 
 public class BasicCalculater2 {
 	/**
-	 * 题目：LeetCode227
-	 * 利用栈做优先级
-	 * 链接：
+	 * 题目：LeetCode227 利用栈做优先级 链接：
 	 * https://leetcode-cn.com/problems/basic-calculator-ii/description/
+	 * 
 	 * @param s
 	 * @return 结果
 	 */
 	public static int calculate(String s) {
-		int slen = s.length();
-		Stack<Integer> st1 = new Stack<Integer>();
-		int num = 0;
-		int res = 0;
-		char op='+';
-		for (int i = 0; i < slen; i++) {
-			if (isNum(s.charAt(i)))//截取数字
-				num = num * 10 + s.charAt(i) - '0';
-			if(i==slen-1||(!isNum(s.charAt(i))&&s.charAt(i)!=' '))
-			{
-				if (op == '+')
-					st1.push(num);
-				if (op == '-')
-					st1.push(-num);
-				if (op == '*')
-					st1.push(st1.pop()*num);
-				if (op == '/')
-					st1.push(st1.pop()/num);
-				op=s.charAt(i);
-				num=0;
+		int prev = 0;
+		int result = 0;
+		int val = 0;
+		char op = '+';
+
+		for (char c : s.toCharArray()) {
+			if (c >= '0' && c <= '9') {
+				val = val * 10 + c - '0';
+			} else if (c != ' ') {
+				switch (op) {
+				case '+':
+					result += prev;
+					prev = val;
+					break;
+				case '-':
+					result += prev;
+					prev = -val;
+					break;
+				case '*':
+					prev = prev * val;
+					break;
+				case '/':
+					prev = prev / val;
+					break;
+				}
+				op = c;
+				val = 0;
 			}
+		}
 
+		if (op == '+') {
+			prev += val;
+		} else if (op == '-') {
+			prev -= val;
+		} else if (op == '*') {
+			prev *= val;
+		} else {
+			prev /= val;
 		}
-		while (!st1.isEmpty()) {
-			res = res + st1.pop();
-		}
-		return res;
+		result += prev;
+		return result;
 	}
 
-	public static boolean isNum(char c) {
-		if ('0' <= c && c <= '9')
-			return true;
-		else
-			return false;
-	}
+
 
 	public static void main(String[] args) {
 
