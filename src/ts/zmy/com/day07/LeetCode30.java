@@ -26,9 +26,13 @@ import java.util.List;
  */
 public class LeetCode30 {
 	public List<Integer> findSubstring(String s, String[] words) {
+		//需要返回的结果
 		ArrayList<Integer> res = new ArrayList<Integer>();
+		//字符串的长度
 		int sLen = s.length();
+		//一共有几个单词
 		int wordsLen = words.length;
+		//用来指示是否匹配完
 		int count = wordsLen;
 		boolean countChange = false;
 		if (wordsLen == 0)
@@ -57,6 +61,7 @@ public class LeetCode30 {
 			}
 			if (count == 0)
 				res.add(i);
+			// 3、判断是否相等，相等则继续不等就重新初始化
 			if (countChange) {
 				map.clear();
 				count = wordsLen;
@@ -64,9 +69,6 @@ public class LeetCode30 {
 				countChange = false;
 			}
 		}
-
-		// 3、判断是否相等，相等则继续不等就重新初始化
-
 		return res;
 	}
 
