@@ -18,11 +18,10 @@ public class LeetCode94 {
 		List<Integer> list = new ArrayList<Integer>();
 
 		while (currNode != null || !stack.isEmpty()) {
-			while (currNode != null) {
+			if (currNode != null) {
 				stack.push(currNode);
 				currNode = currNode.left;
-			}
-			if (!stack.isEmpty()) {
+			} else if (!stack.isEmpty()) {
 				currNode = stack.pop();
 				list.add(currNode.val);
 				currNode = currNode.right;
@@ -48,7 +47,7 @@ public class LeetCode94 {
 
 		TreeNode root = createTree();
 		List<Integer> list = inorderTraversal(root);
-		
+
 		for (Integer integer : list) {
 			System.out.println(integer.intValue());
 		}
