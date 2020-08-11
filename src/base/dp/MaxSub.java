@@ -1,17 +1,11 @@
 package base.dp;
 
+
 /**
  * @program: LeetCode
  * @description: LeetCode 53题 最大子序和
  * @author: Mr.Zhangmy
  * @create: 2020-08-07 11:23
- * 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
- *
- * 示例:
- *
- * 输入: [-2,1,-3,4,-1,2,1,-5,4]
- * 输出: 6
- * 解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。
  * ****************************************************************************************
  * 实现逻辑
  * 初始最大值 maxSub[0] = nums[0]
@@ -31,7 +25,7 @@ public class MaxSub {
         int maxValue = getMaxValue(maxSub);
         return maxValue;
     }
-    public int getMaxValue(int array[]){
+    public static int getMaxValue(int array[]){
         int max=array[0];
         for (int tmp: array) {
             max=max>=tmp?max:tmp;

@@ -14,6 +14,13 @@
 3. 每个单元格都是一个子问题，因此你应该如何考虑将问题分解为子问题。
 ---
 
-1. [最大子序和 LeetCode53](src/base/dp/MaxSub.java)
+1. [LeetCode53 最大子序和](src/base/dp/MaxSub.java)
+2. [LeetCode70 爬楼梯](src/base/dp/ClimbStairs.java)
+3. [LeetCode391 判断子序列](src/base/dp/IsSubsequence.java)
+4. [LeetCode121 买卖股票的最佳时机](src/base/dp/MaxProfit.java)
+5. [LeetCode746 最小花费爬楼梯](src/base/dp/MinCostClimbingStairs.java)
+6. [LeetCode303 区域和检索，数据不可变](src/base/dp/NumArray.java)
+7. [LeetCode198 打家劫舍](src/base/dp/Rob.java)
+8. [LeetCode62 不同的路径](src/base/dp/UniquePaths.java)
 
 
